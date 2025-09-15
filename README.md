@@ -1,150 +1,99 @@
-<br/>
-<p align="center">
+# 💇‍♀️ Face2Face - AI Hairstyle Swapping Web App
 
-  <a href="https://github.com/Blazity/next-saas-starter" >
-    <img src="https://i.imgur.com/jmc2Q1w.png" alt="Logo"  width="49%">
-  </a>
-   <a href="https://github.com/Blazity/next-saas-starter">
-    <img src="https://i.imgur.com/CxkjHhi.png" alt="Logo" width="49%">
-  </a>
+Face2Face is a full-stack web application that uses AI to allow users to try on different hairstyles. Users can upload a photo of themselves, and the application's generative AI will realistically swap their current hair with a new style. This project was developed as a proof-of-concept during an intensive student internship.
 
-  <h3 align="center">✨ Free Next.js marketing website template for SaaS startups ✨</h3>
+---
 
-  <p align="center">
-    Everything you need to build a great landing page / marketing website for your startup. Great SEO metrics, Green WebVitals, 🚀 Performance, Clean & Pragmatic Codebase out of the box.
-    <br/>
-    <br/>
-    <a href="https://next-saas-starter-ashy.vercel.app/">View Demo</a>
-    .
-    <a href="https://github.com/Blazity/next-saas-starter/issues">Report Bug</a>
-    .
-    <a href="https://github.com/Blazity/next-saas-starter/issues">Request Feature</a>
-  </p>
-</p>
+## 📜 About The Project
 
-<div align="center">
+This project was born from a desire to create an innovative and accessible tool in the beauty and tech space. Developed in a start-up-like environment by a team of engineering students, Face2Face was inspired by existing, high-cost "face swapping" services. The goal was to build a competing product using modern AI and web technologies to offer a similar, high-quality experience at a lower cost, targeting both curious individuals and professionals like hairdressers.
 
-![Contributors](https://img.shields.io/github/contributors/Blazity/next-saas-starter?color=dark-green) ![Issues](https://img.shields.io/github/issues/Blazity/next-saas-starter) ![License](https://img.shields.io/github/license/Blazity/next-saas-starter)
+The project was divided into two main missions: first, developing the core AI for hairstyle modification, and second, building a user-friendly website to make this technology accessible to everyone.
 
-</div>
+---
 
-<p align="center"><b>Created with :heart: at Blazity </b></p>
-<p align="center"><a href="https://blazity.com/">Blazity</a> is a group of Next.js/Jamstack/Headless experts. Contact us at <a href="mailto:contact@blazity.com">contact@blazity.com</a> if you’d like to talk about your project or just to have a chat with us :grin:</p>
+## ✨ Features
 
-## Table Of Contents
+* **AI-Powered Hairstyle Swapping**: The core of the application is a Generative Adversarial Network (GAN) that can modify the hairstyle in a user's photo.
+* **Facial Feature Preservation**: The AI uses facial masking techniques to ensure that the user's original facial features are preserved, leading to a more coherent and realistic final image.
+* **Secure User Authentication**: The platform includes a complete user registration and login system. Passwords are securely hashed using `bcrypt`, and sessions are managed with a token-based system.
+* **Modern Web Interface**: The frontend is designed to be simple and intuitive, allowing users to easily upload their photo, choose a new style, and view the result.
+* **Containerized Architecture**: The entire backend, including the Python AI service and the MongoDB database, is containerized with Docker. This ensures consistency across different development environments and simplifies deployment.
 
-- [🤩 Features](#-features)
-- [🤓 Getting Started](#-getting-started)
-- [🚀 One click deploy](#one-click-deploy)
-- [🧰 Built With](#-built-with)
-- [🤲🏻 Contributing](#-contributing)
-  - [Creating A Pull Request](#creating-a-pull-request)
-- [😎 Acknowledgements](#-acknowledgements)
-- [✨ Contributors](#-contributors)
-- [📝 License](#-license)
+---
 
-## 🤩 Features
+## 🛠️ Tech Stack
 
-- ⚡ **Next.js** - React framework for static rendering
-- 🤩 **Best SEO setup** - Meta Tags, JSON-LD and Open Graph Tags
-- 🦒 **[Tina CMS](https://tina.io/) integration** - local & (optional) production CMS
-- ✅ **Optimized for Web Vitals**
-- 📜 **Blog with MDX**
-- 📫 **Mailchimp Integration** - for newsletters
-- 🗳 **Sendgrid Integration** - for sending emails
-- 🌃 **Dark mode** - and customizable themes!
-- 🧽 **No UI library** - just styled components, so you don't have to learn any new syntax
-- 🖱 **One click deployment** - with Vercel or any other serverless deployment environment
-- 🔍 **Eslint** - with Next.js's recommended settings and imports sorting rule
-- 🕯 **Prettier**
+This project was built using a modern, full-stack approach, combining web technologies with a Python-based AI backend.
 
-## 🤓 Getting Started
+* **Frontend**: Next.js, React, TypeScript
+* **Backend**: Node.js, NGINX (as a reverse proxy)
+* **Database**: MongoDB (NoSQL)
+* **AI / Machine Learning**: Python, TensorFlow, Generative Adversarial Networks (GANs)
+* **DevOps**: Docker
+* **Design**: Figma
 
-- Click `Use the template` or [this link](https://github.com/Blazity/next-saas-starter/generate)
-- Setup your [sendgrid](https://sendgrid.com/) API key and add it to environment variables (`SENDGRID_API_KEY` - `.env.local`)
-- Adjust the template to your needs (and checkout `env.ts` file)
-- Deploy the project on [Vercel](https://vercel.com/) **don't forget to add env variables**
-- _(optional)_ Create [Tina Cloud account](https://app.tina.io/), [a project](https://tina.io/docs/tina-cloud/) and fill these `NEXT_PUBLIC_ORGANIZATION_NAME`, `NEXT_PUBLIC_TINA_CLIENT_ID` env vars with proper values
-  > Tina's Content API authenticates directly with GitHub removing the need for users to create GitHub accounts. Access is granted through the dashboard, allowing users to login directly through your site and begin editing! Any changes that are saved by your editors will be commited to the configured branch in your GitHub repository.
-  - For more details [see the docs](https://tina.io/docs/tina-cloud/)
+---
 
-```
-# run the dev mode
-$ yarn dev
+## 📁 Project Structure
 
-# run the prod mode
-yarn start
+The repository is a monorepo containing the Next.js frontend, along with configuration for the containerized backend services.
 
-# build the app
-yarn build
-```
+/
+├── components/      # Reusable React components
+├── contexts/        # React context providers
+├── pages/           # Next.js pages and API routes
+├── posts/           # Content for the blog/CMS (TinaCMS)
+├── public/          # Static assets
+├── styles/          # Global styles
+├── Dockerfile       # Instructions to build the Docker image
+└── next.config.js   # Next.js configuration
 
-> Hint: To edit the blog pages go to [/admin](http://localhost:3000/admin) and navigate to a blog page to edit it. To exit editing mode navigate to [/admin/logout](http://localhost:3000/admin/logout)
+---
 
-## 🚀 One click deploy
+## 🚀 Getting Started
 
-Clone the repository and one-click deploy to Vercel for free!
+To get a local copy up and running, you will need Node.js and Docker installed on your machine.
 
-[![Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/Blazity/next-saas-starter)
+### Prerequisites
 
-Clone the repository and one-click deploy to Netlify for free!
+* Node.js (v16 or higher)
+* npm or yarn
+* Docker and Docker Compose
 
-[![Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Blazity/next-saas-starter)
+### Installation & Execution
 
-## 🧰 Built With
+1.  **Clone the Repository**
+    ```sh
+    git clone [https://github.com/your-username/Face2Face.git](https://github.com/your-username/Face2Face.git)
+    cd Face2Face
+    ```
 
-- Statically generated pages with [**Next.js** ](https://github.com/vercel/next.js)
-- [Styled components](https://github.com/styled-components/styled-components/)
-- [MDX](https://github.com/mdx-js/mdx)
-- [TypeScript](https://github.com/Microsoft/TypeScript)
+2.  **Set Up Environment Variables**
+    * Create a `.env` file in the root of the project based on the `.env.example` file.
+    * Add your MongoDB connection string and any other required secrets.
+        ```
+        MONGO_URI=your_mongodb_connection_string
+        NEXT_PUBLIC_API_URL=http://localhost:8000/api
+        ```
 
-## 🤲🏻 Contributing
+3.  **Build and Run with Docker**
+    * The backend services (including the Python AI) are designed to be run within Docker containers. If a `docker-compose.yml` file is present, you can launch everything with one command:
+        ```sh
+        docker-compose up --build
+        ```
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+4.  **Run the Frontend**
+    * In a separate terminal, install the frontend dependencies and start the development server:
+        ```sh
+        npm install
+        npm run dev
+        ```
 
-- If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/Blazity/next-saas-starter/issues/new) to discuss it, or directly create a pull request after you edit the _README.md_ file with necessary changes.
-- Create individual PR for each suggestion.
+5.  Open your browser and navigate to `http://localhost:3000`.
 
-### Creating A Pull Request
+---
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## ⚠️ Project Status
 
-## 😎 Acknowledgements
-
-Big thanks to authors of these libraries:
-
-- https://github.com/neg4n/next-api-og-image - generating open graph images
-- https://github.com/blazity/nextjs-color-mode - non-flickering dark mode
-- https://github.com/Brew-Brew/css-in-js-media - a convenient way of creating media queries
-
-## ✨ Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://bstefanski.com/"><img src="https://avatars.githubusercontent.com/u/28964599?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Bart Stefanski</b></sub></a><br /><a href="https://github.com/Blazity/next-saas-starter/commits?author=bmstefanski" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/ilasota"><img src="https://avatars.githubusercontent.com/u/34578189?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Igor Lasota</b></sub></a><br /><a href="https://github.com/Blazity/next-saas-starter/commits?author=ilasota" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/jbryn"><img src="https://avatars.githubusercontent.com/u/52970664?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Jan Bryński</b></sub></a><br /><a href="https://github.com/Blazity/next-saas-starter/commits?author=jbryn" title="Code">💻</a></td>
-    <td align="center"><a href="https://www.logana.dev/"><img src="https://avatars.githubusercontent.com/u/43075109?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Logan Anderson</b></sub></a><br /><a href="https://github.com/Blazity/next-saas-starter/commits?author=logan-anderson" title="Code">💻</a> <a href="https://github.com/Blazity/next-saas-starter/commits?author=logan-anderson" title="Documentation">📖</a> <a href="#mentoring-logan-anderson" title="Mentoring">🧑‍🏫</a></td>
-    <td align="center"><a href="https://github.com/fdukat"><img src="https://avatars.githubusercontent.com/u/87642690?v=4?s=64" width="64px;" alt=""/><br /><sub><b>Filip Dukat</b></sub></a><br /><a href="https://github.com/Blazity/next-saas-starter/commits?author=fdukat" title="Documentation">📖</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-## 📝 License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/Blazity/next-saas-starter/blob/main/LICENSE.md) for more information.
+This project was developed within a limited timeframe for an internship. While the core AI components and the web application's foundation were successfully built, the final step of fully integrating the AI service with the frontend website was not completed.
